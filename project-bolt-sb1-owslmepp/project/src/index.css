@@ -1,0 +1,155 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: #121212;
+  color: #ffffff;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C28840;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #A76C2F;
+}
+
+/* Smooth transitions for all interactive elements */
+button, a {
+  transition: all 0.3s ease;
+}
+
+/* Focus styles for accessibility */
+button:focus-visible, a:focus-visible {
+  outline: 2px solid #C28840;
+  outline-offset: 2px;
+}
+
+/* Loading animation */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Enhanced glow effects */
+@keyframes glow {
+  0%, 100% {
+    text-shadow: 0 0 5px rgba(194, 136, 64, 0.3), 0 0 10px rgba(194, 136, 64, 0.2), 0 0 15px rgba(194, 136, 64, 0.1);
+  }
+  50% {
+    text-shadow: 0 0 10px rgba(194, 136, 64, 0.5), 0 0 20px rgba(194, 136, 64, 0.3), 0 0 30px rgba(194, 136, 64, 0.2);
+  }
+}
+
+.text-glow {
+  animation: glow 3s ease-in-out infinite;
+}
+
+/* Floating animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Shimmer effect */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(90deg, transparent, rgba(194, 136, 64, 0.4), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Particle effect background */
+.particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.particles::before,
+.particles::after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: rgba(194, 136, 64, 0.6);
+  border-radius: 50%;
+  animation: particles 8s linear infinite;
+}
+
+.particles::before {
+  left: 20%;
+  animation-delay: 0s;
+}
+
+.particles::after {
+  left: 80%;
+  animation-delay: 4s;
+}
+
+@keyframes particles {
+  0% {
+    transform: translateY(100vh) scale(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) scale(1);
+    opacity: 0;
+  }
+}
